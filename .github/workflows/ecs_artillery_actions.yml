@@ -18,7 +18,7 @@ jobs:
         uses: artilleryio/action-cli@v1
         timeout-minutes: 15 # best practice: adding timeout in case something goes wrong with the test, so that GitHub Action won’t run for the default 6h
         with:
-          command: run-fargate --region us-east-1 --count 1 --launch-config ${{ LAUNCH_CONFIG }} ./browser-load-test.yml --record --key ${{ secrets.ARTILLERY_RESULTS_KEY }} --output ./report.json
+          command: run-fargate --region us-east-1 --count 1 --launch-config ${{ $env:LAUNCH_CONFIG }} ./browser-load-test.yml --record --key ${{ secrets.ARTILLERY_RESULTS_KEY }} --output ./report.json
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
