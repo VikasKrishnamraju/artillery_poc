@@ -27,4 +27,4 @@ jobs:
         uses: artilleryio/action-cli@v1
         timeout-minutes: 15 # best practice: adding timeout in case something goes wrong with the test, so that GitHub Action won’t run for the default 6h
         with:
-          command: run-lambda ./browser-load-test.yml --count 1 ./report.json
+          command: run-lambda ./browser-load-test.yml --count 1 --launch-config '[{"cpu":1024,"memory":2048}]' ./report.json
