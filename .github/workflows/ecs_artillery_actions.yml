@@ -1,0 +1,27 @@
+name: Running Artillery in Lambda or Fargate
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read #this is needed so that checkout of repository can happen
+
+jobs:
+  artillery:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Run Fargate Test
+        uses: artilleryio/action-cli@v1
+        timeout-minutes: 15 # best practice: adding timeout in case something goes wrong with the test, so that GitHub Action won’t run for the default 6h
+        with:
+          command: run-fargate ./browser-load-test.yml --count 1 --output ./report.json
+
+      - name: Run Lambda Test
+        uses: artilleryio/action-cli@v1
+        timeout-minutes: 15 # best practice: adding timeout in case something goes wrong with the test, so that GitHub Action won’t run for the default 6h
+        with:
+          command: run-lambda ./browser-load-test.yml --count 1 ./report.json
