@@ -1,4 +1,4 @@
-name: Running Artillery in Fargate Using AWS Access Key and Ubuntu Runner
+name: Artillery-Fargate-AWS-AccessKey-Ubuntu-Runner
 
 on:
   workflow_dispatch:
