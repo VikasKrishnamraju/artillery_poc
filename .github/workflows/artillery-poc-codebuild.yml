@@ -8,7 +8,7 @@ permissions:
 
 jobs:
   artillery:
-    runs-on: codebuild-artillery-fargare-poc-${{ github.run_id }}-${{ github.run_attempt }}
+    runs-on: codebuild-github-oauth-personal-${{ github.run_id }}-${{ github.run_attempt }}
 
     steps:
       - name: Checkout repository
