@@ -1,16 +1,4 @@
 config:
-  plugins:
-    publish-metrics:
-      - type: influxdb-statsd
-        apiKey: '3BB4JWCVcbh2RXEuJ4GUfaPojx49lkvRgFtMqoz4AyMK2CwOxkTebp8JX8qyvXZ-HrgesFuQk1opziT9Nwe7jg=='
-        prefix: 'artillery.publish_metrics_plugin.'
-        tags:
-          - 'testId:{{ $testId }}'
-          - 'reporterType:influxdb-statsd'
-        event:
-          priority: low
-          tags:
-            - 'testId:{{ $testId }}'
   target: "https://www.artillery.io"
   phases:
     - arrivalRate: 1
