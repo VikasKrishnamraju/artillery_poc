@@ -8,7 +8,7 @@ permissions:
 
 jobs:
   artillery:
-    runs-on: ubuntu-latest
+    runs-on: codebuild-artillery-fargare-poc-${{ github.run_id }}-${{ github.run_attempt }}
 
     steps:
       - name: Checkout repository
