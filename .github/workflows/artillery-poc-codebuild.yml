@@ -1,4 +1,4 @@
-name: Running Artillery in Lambda Using AWS Code Build
+name: Artillery-Fargate-AWS-CodeBuild
 
 on:
   workflow_dispatch:
