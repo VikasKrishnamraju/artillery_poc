@@ -17,7 +17,7 @@ jobs:
         env:
           SHOW_STACK_TRACE: true # in case there are issues, this can help with debugging
         with:
-          aws-region: eu-east-1
+          aws-region: us-east-1
           role-to-assume: ${{ secrets.ARTILLERY_ROLE_ARN }} # arn of the role created in AWS, should be kept in GitHub Secrets
           role-session-name: OIDCSession
         
