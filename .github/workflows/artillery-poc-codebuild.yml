@@ -8,7 +8,7 @@ permissions:
 
 jobs:
   artillery:
-    runs-on: codebuild-github-actions-oath-${{ github.run_id }}-${{ github.run_attempt }}
+    runs-on: codebuild-actions-github-personal-${{ github.run_id }}-${{ github.run_attempt }}
 
     steps:
       - name: Checkout repository
