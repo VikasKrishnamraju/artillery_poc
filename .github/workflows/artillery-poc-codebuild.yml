@@ -11,6 +11,9 @@ jobs:
     runs-on: codebuild-actions-github-personal-${{ github.run_id }}-${{ github.run_attempt }}
 
     steps:
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v3
+        
       - name: Checkout repository
         uses: actions/checkout@v3
 
