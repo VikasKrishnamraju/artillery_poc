@@ -5,7 +5,7 @@ on:
 
 permissions:
   id-token: write
-  contents: write
+  contents: read
 
 jobs:
   artillery:
@@ -14,9 +14,12 @@ jobs:
     steps:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v3
+        env:
+          SHOW_STACK_TRACE: true # in case there are issues, this can help with debugging
         with:
-          role-to-assume: arn:aws:iam::058264331455:role/github-oidc-personal
-          aws-region: us-east-1
+          aws-region: eu-east-1
+          role-to-assume: ${{ secrets.ARTILLERY_ROLE_ARN }} # arn of the role created in AWS, should be kept in GitHub Secrets
+          role-session-name: OIDCSession
         
       - name: Checkout repository
         uses: actions/checkout@v3
