@@ -19,6 +19,3 @@ jobs:
         timeout-minutes: 15 # best practice: adding timeout in case something goes wrong with the test, so that GitHub Action won’t run for the default 6h
         with:
           command: run-fargate --region us-east-1 --count 1 --cpu 1024 --memory 2048 ./browser-test-with-steps.yml --record --key ${{ secrets.ARTILLERY_RESULTS_KEY }}
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
