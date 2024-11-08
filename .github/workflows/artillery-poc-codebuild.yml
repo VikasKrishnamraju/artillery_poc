@@ -13,6 +13,9 @@ jobs:
     steps:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v3
+        with:
+          role-to-assume: arn:aws:iam::058264331455:role/github-oidc-personal
+          aws-region: us-east-1
         
       - name: Checkout repository
         uses: actions/checkout@v3
