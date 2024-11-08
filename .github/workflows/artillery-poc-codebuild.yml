@@ -4,7 +4,8 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read #this is needed so that checkout of repository can happen
+  id-token: write
+  contents: write
 
 jobs:
   artillery:
