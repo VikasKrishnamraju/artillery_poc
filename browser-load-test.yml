@@ -1,4 +1,11 @@
 config:
+  plugins:
+    publish-metrics:
+      - type: prometheus
+        pushgateway: 'http://44.202.231.63:9091/'
+        tags:
+          - 'testId:browser-load-test'
+          - 'type:artillery-playwright-loadtest'
   target: "https://www.artillery.io"
   phases:
     - arrivalRate: 1
