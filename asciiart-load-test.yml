@@ -1,11 +1,4 @@
-config:
-  plugins:
-    publish-metrics:
-      - type: prometheus
-        pushgateway: 'http://98.81.96.202:9091/'
-        tags:
-          - 'testId:asciiart-load-test'
-          - 'type:http-request-loadtest'
+config:    
   # This is a test server run by team Artillery
   # It's designed to be highly scalable
   target: http://asciiart.artillery.io:8080
@@ -25,6 +18,12 @@ config:
   # Load & configure a couple of useful plugins
   # https://docs.art/reference/extensions
   plugins:
+    publish-metrics:
+      - type: prometheus
+        pushgateway: 'http://98.81.96.202:9091/'
+        tags:
+          - 'testId:browser-load-test'
+          - 'type:artillery-playwright-loadtest'
     ensure: {}
     apdex: {}
     metrics-by-endpoint: {}
@@ -34,6 +33,7 @@ config:
     thresholds:
       - http.response_time.p99: 100
       - http.response_time.p95: 75
+      
 scenarios:
   - flow:
       - loop:
