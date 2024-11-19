@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   artillery:
-    runs-on: codebuild-github-actions-runner-${{ github.run_id }}-${{ github.run_attempt }}
+    runs-on: codebuild-artillery-performance-${{ github.run_id }}-${{ github.run_attempt }}
 
     steps:
       - name: Configure AWS credentials
