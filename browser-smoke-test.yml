@@ -4,7 +4,7 @@ config:
       - type: prometheus
         pushgateway: 'http://3.231.53.41:9091'
         tags:
-          - 'testId:browser-load-test'
+          - 'testId:browser-smoke-test'
           - 'type:artillery-playwright-loadtest'
   target: "https://www.artillery.io"
   payload:
