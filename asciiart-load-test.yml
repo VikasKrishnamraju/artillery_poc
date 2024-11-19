@@ -20,7 +20,7 @@ config:
   plugins:
     publish-metrics:
       - type: prometheus
-        pushgateway: 'http://98.81.96.202:9091/'
+        pushgateway: 'http://3.231.53.41:9091'
         tags:
           - 'testId:browser-load-test'
           - 'type:artillery-playwright-loadtest'
