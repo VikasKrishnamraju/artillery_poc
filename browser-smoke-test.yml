@@ -1,4 +1,11 @@
 config:
+  plugins:
+    publish-metrics:
+      - type: prometheus
+        pushgateway: 'http://3.231.53.41:9091'
+        tags:
+          - 'testId:browser-load-test'
+          - 'type:artillery-playwright-loadtest'
   target: "https://www.artillery.io"
   payload:
     - path: ./pages.csv
