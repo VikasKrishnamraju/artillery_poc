@@ -44,4 +44,4 @@ jobs:
         uses: artilleryio/action-cli@v1
         timeout-minutes: 15 # best practice: adding timeout in case something goes wrong with the test, so that GitHub Action won’t run for the default 6h
         with:
-          command: run-fargate --region us-east-1 --count 1 --cpu 1024 --memory 2048 --cluster artillery-performance ./${{ inputs.artillery_yml }} --record --key ${{ secrets.ARTILLERY_RESULTS_KEY }}
+          command: run-fargate --region us-east-1 --count 1 --cpu 1024 --memory 2048 --cluster artillery-performance --task-role-name a202990-ArtilleryDistributedTestingFargateRole ./${{ inputs.artillery_yml }} --record --key ${{ secrets.ARTILLERY_RESULTS_KEY }}
