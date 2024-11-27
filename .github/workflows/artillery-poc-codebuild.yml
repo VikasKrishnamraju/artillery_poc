@@ -23,15 +23,6 @@ jobs:
     runs-on: codebuild-artillery-qa-performance-${{ github.run_id }}-${{ github.run_attempt }}
 
     steps:
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v3
-        env:
-          SHOW_STACK_TRACE: true # in case there are issues, this can help with debugging
-        with:
-          aws-region: us-east-1
-          role-to-assume: ${{ secrets.ARTILLERY_ROLE_ARN }} # arn of the role created in AWS, should be kept in GitHub Secrets
-          role-session-name: OIDCSession
-        
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
@@ -41,7 +32,6 @@ jobs:
           ref: '${{ inputs.branch }}'
 
       - name: Run Fargate Test
-        uses: artilleryio/action-cli@v1
         timeout-minutes: 15 # best practice: adding timeout in case something goes wrong with the test, so that GitHub Action won’t run for the default 6h
-        with:
-          command: run-fargate --region us-east-1 --count 1 --cpu 1024 --memory 2048 ./${{ inputs.artillery_yml }} --record --key ${{ secrets.ARTILLERY_RESULTS_KEY }}
+        run: |
+          run run-fargate --region us-east-1 --count 1 --cpu 1024 --memory 2048 ./${{ inputs.artillery_yml }} --record --key ${{ secrets.ARTILLERY_RESULTS_KEY }}
