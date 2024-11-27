@@ -1,14 +1,15 @@
 config:
   plugins:
-      publish-metrics:
-      - type: 'open-telemetry'
-        serviceName: 'artillery-poc'
-        traces:
-          endpoint: 'http://44.203.134.103:4318'
-          smartSampling:
-            thresholds:
-              firstByte: 500
-              total: 2000
+    publish-metrics:
+    - type: 'open-telemetry'
+      serviceName: 'artillery_poc'
+      # Set attributes for all resources (metrics and traces):
+      resourceAttributes:
+        custom-attribute: 'loadtest'
+      metrics:
+        endpoint: 'http://44.203.134.103:14269/metrics'
+      traces:
+        endpoint: 'http://44.203.134.103:4318/v1/traces'
   target: "https://www.artillery.io"
   phases:
     - arrivalRate: 1
