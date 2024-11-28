@@ -9,8 +9,8 @@ config:
       metrics:
         endpoint: 'http://100.24.113.139:14269/metrics'
       traces:
-        #endpoint: 'http://100.24.113.139:4318/v1/traces'
-        endpoint: 'http://100.24.113.139:14268/api/traces'
+        endpoint: 'http://100.24.113.139:4318/v1/traces'
+        #endpoint: 'http://100.24.113.139:14268/api/traces'
   target: "https://www.artillery.io"
   phases:
     - arrivalRate: 1
