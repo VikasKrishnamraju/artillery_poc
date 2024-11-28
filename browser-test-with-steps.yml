@@ -1,11 +1,15 @@
 config:
   plugins:
     publish-metrics:
-      - type: prometheus
-        pushgateway: 'http://3.231.53.41:9091'
-        tags:
-          - 'testId:browser-test-with-steps'
-          - 'type:artillery-playwright-loadtest'
+    - type: 'open-telemetry'
+      serviceName: 'artillery_poc'
+      # Set attributes for all resources (metrics and traces):
+      resourceAttributes:
+        custom-attribute: 'smoketest'
+      metrics:
+        endpoint: 'http://100.24.113.139:14269/metrics'
+      traces:
+        endpoint: 'http://100.24.113.139:4318/v1/traces'
   target: "https://www.artillery.io"
   phases:
     - arrivalRate: 1
