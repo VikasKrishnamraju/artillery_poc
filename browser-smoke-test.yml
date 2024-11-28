@@ -7,9 +7,9 @@ config:
       resourceAttributes:
         custom-attribute: 'smoketest'
       metrics:
-        endpoint: 'http://44.203.134.103:14269/metrics'
+        endpoint: 'http://100.24.113.139:14269/metrics'
       traces:
-        endpoint: 'http://44.203.134.103:14268/api/traces'
+        endpoint: 'http://100.24.113.139:4318/v1/traces'
   target: "https://www.artillery.io"
   payload:
     - path: ./pages.csv
