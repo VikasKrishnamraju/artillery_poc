@@ -5,7 +5,7 @@ config:
       serviceName: 'artillery_poc'
       # Set attributes for all resources (metrics and traces):
       resourceAttributes:
-        custom-attribute: 'smoketest'
+        custom-attribute: 'playwright-test'
       metrics:
         endpoint: 'http://100.24.113.139:14269/metrics'
       traces:
