@@ -20,7 +20,7 @@ permissions:
 
 jobs:
   artillery:
-    runs-on: codebuild-artillery-qa-performance-1-${{ github.run_id }}-${{ github.run_attempt }}
+    runs-on: codebuild-artillery-qa-performance-2-${{ github.run_id }}-${{ github.run_attempt }}
 
     steps:
       - name: Checkout repository
