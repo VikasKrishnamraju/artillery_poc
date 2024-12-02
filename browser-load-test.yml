@@ -1,22 +1,15 @@
 config:
   plugins:
     publish-metrics:
-      - type: "open-telemetry"
-        serviceName: "artillery"
-        metrics:
-          reporter: otlp-http
-          endpoint: "http://54.160.208.70:4318/v1/metrics"
-          attributes:
-            environment: "test"
-            tool: "Artillery"
-            type: "Load test"
-
-        traces:
-          reporter: otlp-http
-          endpoint: "http://54.160.208.70:4318/v1/traces"
-          attributes:
-            environment: "test"
-            tool: "Artillery"
+    - type: 'open-telemetry'
+      serviceName: 'artillery-test'
+      # Set attributes for all resources (metrics and traces):
+      resourceAttributes:
+        custom-attribute: 'loadtest'
+      metrics:
+        endpoint: 'http://54.160.208.70:4318/v1/metrics'
+      traces:
+        endpoint: 'http://54.160.208.70:4318/v1/traces'
   target: "https://www.artillery.io"
   phases:
     - arrivalRate: 1
