@@ -7,9 +7,9 @@ config:
         resourceAttributes:
           custom-attribute: 'playwright-artillery'
         metrics:
-          endpoint: 'http://3.91.215.70:14269/metrics'
+          endpoint: 'http://54.227.52.181:14269/metrics'
         traces:
-          endpoint: 'http://3.91.215.70:4318/v1/traces'
+          endpoint: 'http://54.227.52.181:4318/v1/traces'
       - type: prometheus
         pushgateway: 'http://54.227.52.181:9091'
         tags:
