@@ -7,13 +7,14 @@ config:
       resourceAttributes:
         custom-attribute: 'playwright-artillery'
       metrics:
-        endpoint: 'http://52.205.204.190:14269/metrics'
+        endpoint: 'http://3.91.215.70:14269/metrics'
       traces:
-        endpoint: 'http://52.205.204.190:4318/v1/traces'
+        endpoint: 'http://3.91.215.70:4318/v1/traces'
   target: "https://www.artillery.io"
   phases:
     - arrivalRate: 1
       duration: 10
+      maxVusers: 2
   engines:
     playwright:
       trace: true
