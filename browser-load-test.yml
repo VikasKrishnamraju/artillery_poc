@@ -7,9 +7,9 @@ config:
       resourceAttributes:
         custom-attribute: 'loadtest'
       metrics:
-        endpoint: 'http://54.160.208.70:4318/metrics'
+        endpoint: 'http://52.205.204.190:14269/metrics'
       traces:
-        endpoint: 'http://54.160.208.70:4318/v1/traces'
+        endpoint: 'http://52.205.204.190:4318/v1/traces'
   target: "https://www.artillery.io"
   phases:
     - arrivalRate: 1
