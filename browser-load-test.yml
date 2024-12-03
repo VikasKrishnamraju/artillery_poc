@@ -2,10 +2,10 @@ config:
   plugins:
     publish-metrics:
     - type: 'open-telemetry'
-      serviceName: 'artillery-test'
+      serviceName: 'artillery-load-test'
       # Set attributes for all resources (metrics and traces):
       resourceAttributes:
-        custom-attribute: 'loadtest'
+        custom-attribute: 'playwright-artillery'
       metrics:
         endpoint: 'http://52.205.204.190:14269/metrics'
       traces:
