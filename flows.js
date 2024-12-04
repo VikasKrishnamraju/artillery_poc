@@ -33,6 +33,36 @@ async function checkOutArtilleryCoreConceptsFlow(
   });
 }
 
+async function checkOutPlayWrightFlow(
+  page,
+  userContext,
+  events,
+  test
+) {
+  await test.step('Navigate Playwright Home Page', async () => {
+    const requestPromise = page.waitForRequest('https://playwright.dev/');
+    await page.goto('https://playwright.dev/');
+    const req = await requestPromise;
+  });
+  await test.step('Click On <Docs>', async () => {
+    const docs = await page.getByRole('link', { name: 'Docs' });
+    await docs.click();
+    await page.waitForURL('https://playwright.dev/docs/intro');
+  });
+
+  await test.step('Click On <Fixtures>', async () => {
+    await page
+      .getByRole('link', {
+        name: 'Fixtures'
+      })
+      .click();
+
+    await page.waitForURL(
+      'https://playwright.dev/docs/test-fixtures'
+    );
+  });
+}
+
 //
 // A simple smoke test using a headless browser:
 //
@@ -81,6 +111,7 @@ async function multistepWithCustomMetrics(page, userContext, events, test) {
 
 module.exports = {
   checkOutArtilleryCoreConceptsFlow,
+  checkOutPlayWrightFlow,
   checkPage,
   multistepWithCustomMetrics
 };
