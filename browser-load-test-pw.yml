@@ -5,7 +5,7 @@ config:
         serviceName: 'artillery-load-test'
         # Set attributes for all resources (metrics and traces):
         resourceAttributes:
-          custom-attribute: 'testId:browser-load-test'
+          custom-attribute: 'testId:browser-load-test-2'
         metrics:
           endpoint: 'http://44.202.187.224:14269/metrics'
         traces:
@@ -13,7 +13,7 @@ config:
       - type: prometheus
         pushgateway: 'http://44.202.187.224:9091'
         tags:
-          - 'testId:browser-load-test'
+          - 'testId:browser-load-test-2'
           - 'type:loadtest'
   target: "https://playwright.dev/"
   phases:
