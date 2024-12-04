@@ -17,8 +17,8 @@ config:
           - 'type:loadtest'
   target: "https://www.artillery.io"
   phases:
-    - arrivalRate: 1
-      duration: 10
+    #- arrivalRate: 1
+    - duration: 10
       maxVusers: 1
   engines:
     playwright:
