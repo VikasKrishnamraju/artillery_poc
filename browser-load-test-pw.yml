@@ -1,0 +1,30 @@
+config:
+  plugins:
+    publish-metrics:
+      - type: 'open-telemetry'
+        serviceName: 'artillery-load-test'
+        # Set attributes for all resources (metrics and traces):
+        resourceAttributes:
+          custom-attribute: 'testId:browser-load-test'
+        metrics:
+          endpoint: 'http://44.202.187.224:14269/metrics'
+        traces:
+          endpoint: 'http://44.202.187.224:4318/v1/traces'
+      - type: prometheus
+        pushgateway: 'http://44.202.187.224:9091'
+        tags:
+          - 'testId:browser-load-test'
+          - 'type:loadtest'
+  #target: "https://www.artillery.io"
+  phases:
+    - arrivalRate: 1
+      duration: 10
+      maxVusers: 1
+  engines:
+    playwright:
+      trace: true
+  processor: ./flows.js
+scenarios:
+  - name: "playwright_dev_website"
+    engine: playwright
+    flowFunction: "checkOutArtilleryCoreConceptsFlow"
