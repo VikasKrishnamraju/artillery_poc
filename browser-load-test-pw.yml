@@ -27,4 +27,4 @@ config:
 scenarios:
   - name: "playwright_dev_website"
     engine: playwright
-    flowFunction: "checkOutArtilleryCoreConceptsFlow"
+    flowFunction: "checkOutPlayWrightFlow"
