@@ -15,7 +15,7 @@ config:
         tags:
           - 'testId:browser-load-test'
           - 'type:loadtest'
-  #target: "https://www.artillery.io"
+  target: "https://playwright.dev/"
   phases:
     - arrivalRate: 1
       duration: 10
