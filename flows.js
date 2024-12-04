@@ -50,15 +50,15 @@ async function checkOutPlayWrightFlow(
     await page.waitForURL('https://playwright.dev/docs/intro');
   });
 
-  await test.step('Click On <Fixtures>', async () => {
+  await test.step('Click On <Generating tests>', async () => {
     await page
       .getByRole('link', {
-        name: 'Fixtures'
+        name: 'Generating tests'
       })
       .click();
 
     await page.waitForURL(
-      'https://playwright.dev/docs/test-fixtures'
+      'https://playwright.dev/docs/codegen-intro'
     );
   });
 }
