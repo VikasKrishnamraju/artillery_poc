@@ -7,7 +7,7 @@ config:
         resourceAttributes:
           custom-attribute: 'testId:{{ test_id }}'
         metrics:
-          endpoint: 'http://{{ metrics_url }}:14269/metrics'
+          endpoint: 'http://{{ metrics_url }}:14269/v1/metrics'
         traces:
           endpoint: 'http://{{ metrics_url }}:4318/v1/traces'
       - type: prometheus
