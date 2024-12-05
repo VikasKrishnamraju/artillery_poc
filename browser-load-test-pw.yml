@@ -4,7 +4,7 @@ config:
       - type: 'open-telemetry'
         serviceName: '{{ service_name }}'
         # Set attributes for all resources (metrics and traces):
-        attributes:
+        resourceAttributes:
           testId: '{{ test_id }}'
         metrics:
           endpoint: 'http://{{ metrics_url }}:14269/v1/metrics'
