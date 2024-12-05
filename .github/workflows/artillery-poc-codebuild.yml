@@ -23,6 +23,11 @@ on:
         type: string
         required: true
         default: 'playwright-dev-tests'
+      metrics_url:
+        description: "Metrics and Opentelemetry URL"
+        type: string
+        required: true
+        default: '54.84.142.245'
 
 permissions:
   id-token: write
@@ -44,5 +49,5 @@ jobs:
       - name: Run Fargate Test
         timeout-minutes: 15 # best practice: adding timeout in case something goes wrong with the test, so that GitHub Action won’t run for the default 6h
         run: |
-          run run-fargate --region us-east-1 --count 1 --cpu 1024 --memory 2048 --cluster artillery-opentelemetry-metrics --variables '{ "test_id": ${{ inputs.testId }}, "service_name": ${{ inputs.serviceName }} }' ./${{ inputs.artillery_yml }} --record --key ${{ secrets.ARTILLERY_RESULTS_KEY }}
+          run run-fargate --region us-east-1 --count 1 --cpu 1024 --memory 2048 --cluster artillery-opentelemetry-metrics --variables '{ "test_id": "${{ inputs.testId }}", "service_name": "${{ inputs.serviceName }}", "metrics_url": "${{ inputs.metrics_url }}" }' ./${{ inputs.artillery_yml }} --record --key ${{ secrets.ARTILLERY_RESULTS_KEY }}
           # --record --key ${{ secrets.ARTILLERY_RESULTS_KEY }}
