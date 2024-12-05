@@ -2,10 +2,10 @@ config:
   plugins:
     publish-metrics:
       - type: 'open-telemetry'
-        serviceName: 'artillery-load-test'
+        serviceName: '{{ service_name }}'
         # Set attributes for all resources (metrics and traces):
         resourceAttributes:
-          custom-attribute: 'testId:browser-load-test-2'
+          custom-attribute: '{{ test_id }}'
         metrics:
           endpoint: 'http://44.202.187.224:14269/metrics'
         traces:
@@ -13,8 +13,7 @@ config:
       - type: prometheus
         pushgateway: 'http://44.202.187.224:9091'
         tags:
-          - 'testId:browser-load-test-2'
-          - 'type:loadtest'
+          - '{{ test_id }}'
   target: "https://playwright.dev/"
   phases:
     - arrivalRate: 1
