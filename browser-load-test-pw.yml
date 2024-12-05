@@ -11,9 +11,9 @@ config:
         traces:
           endpoint: 'http://{{ metrics_url }}:4318/v1/traces'
       - type: prometheus
-          pushgateway: 'http://54.84.142.245:9091'
-          tags:
-            - '{{ test_id }}'
+        pushgateway: 'http://54.84.142.245:9091'
+        tags:
+          - '{{ test_id }}'
   target: "https://playwright.dev/"
   phases:
     - arrivalRate: 1
