@@ -7,11 +7,11 @@ config:
         resourceAttributes:
           custom-attribute: '{{ test_id }}'
         metrics:
-          endpoint: 'http://44.202.187.224:14269/metrics'
+          endpoint: 'http://{{ metrics_url }}:14269/metrics'
         traces:
-          endpoint: 'http://44.202.187.224:4318/v1/traces'
+          endpoint: 'http://{{ metrics_url }}:4318/v1/traces'
       - type: prometheus
-        pushgateway: 'http://44.202.187.224:9091'
+        pushgateway: 'http://{{ metrics_url }}:9091'
         tags:
           - '{{ test_id }}'
   target: "https://playwright.dev/"
