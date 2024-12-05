@@ -5,7 +5,7 @@ config:
         serviceName: '{{ service_name }}'
         # Set attributes for all resources (metrics and traces):
         resourceAttributes:
-          testName: '{{ testName }}'
+          testName: '{{ test_name }}'
         metrics:
           endpoint: 'http://{{ metrics_url }}:14269/v1/metrics'
         traces:
@@ -13,7 +13,7 @@ config:
       - type: prometheus
         pushgateway: 'http://{{ metrics_url }}:9091'
         tags:
-          - 'testName:{{ testName }}'
+          - 'testName:{{ test_name }}'
   target: "https://playwright.dev/"
   phases:
     - arrivalRate: 1
