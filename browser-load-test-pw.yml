@@ -13,7 +13,7 @@ config:
       - type: prometheus
         pushgateway: 'http://{{ metrics_url }}:9091'
         tags:
-          - '{{ test_id }}'
+          - 'testId:{{ test_id }}'
   target: "https://playwright.dev/"
   phases:
     - arrivalRate: 1
