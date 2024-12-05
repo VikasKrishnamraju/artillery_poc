@@ -27,7 +27,7 @@ on:
         description: "Metrics and Opentelemetry URL"
         type: string
         required: true
-        default: '54.84.142.245'
+        default: ''
 
 permissions:
   id-token: write
