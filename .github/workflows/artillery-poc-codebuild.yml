@@ -49,5 +49,6 @@ jobs:
       - name: Run Fargate Test
         timeout-minutes: 15 # best practice: adding timeout in case something goes wrong with the test, so that GitHub Action won’t run for the default 6h
         run: |
-          run run-fargate --region us-east-1 --count 3 --cpu 1024 --memory 2048 --cluster artillery-opentelemetry-metrics --variables '{ "test_name": "${{ inputs.testName }}", "service_name": "${{ inputs.serviceName }}", "metrics_url": "${{ inputs.metrics_url }}" }' ./${{ inputs.artillery_yml }} --record --key ${{ secrets.ARTILLERY_RESULTS_KEY }}
+          run run-fargate --region us-east-1 --count 3 --cpu 1024 --memory 2048 --output /home/node/artillery/overall-pw-report.json --cluster artillery-opentelemetry-metrics --variables '{ "test_name": "${{ inputs.testName }}", "service_name": "${{ inputs.serviceName }}", "metrics_url": "${{ inputs.metrics_url }}" }' ./${{ inputs.artillery_yml }} --record --key ${{ secrets.ARTILLERY_RESULTS_KEY }}
           # --record --key ${{ secrets.ARTILLERY_RESULTS_KEY }}
+          aws s3 cp /home/node/artillery/overall-pw-report.json s3://artilleryio-test-data-735290693582/overall-pw-report.json
