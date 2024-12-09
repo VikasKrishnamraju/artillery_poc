@@ -61,6 +61,11 @@ async function checkOutPlayWrightFlow(
       'https://playwright.dev/docs/codegen-intro'
     );
   });
+  await test.step('Click On <Trace viewer>', async () => {
+  const docs = await page.getByRole('link', { name: 'Trace viewer' });
+  await docs.click();
+  await page.waitForURL('https://playwright.dev/docs/trace-viewer-intro');
+  });
 }
 
 //
