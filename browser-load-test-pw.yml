@@ -20,8 +20,14 @@ config:
         dimensions:
           - name: Team
             value: SQA
-          - name: Service
+          - name: my-service
             value: checkout-svc
+        traces:
+          serviceName: my-service
+          useRequestNames: true
+          annotations:
+            testType: LoadTest
+            tool: Artillery
   target: "https://playwright.dev/"
   phases:
     - arrivalRate: 1
