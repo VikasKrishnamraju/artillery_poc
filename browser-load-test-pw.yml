@@ -6,7 +6,6 @@ config:
         # Set attributes for all resources (metrics and traces):
         resourceAttributes:
           testName: '{{ test_name }}'
-          testerName: 'vikky'
         metrics:
           endpoint: 'http://{{ metrics_url }}:14269/v1/metrics'
         traces:
