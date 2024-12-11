@@ -14,20 +14,6 @@ config:
         pushgateway: 'http://{{ metrics_url }}:9091'
         tags:
           - 'testName:{{ test_name }}'
-      - type: cloudwatch
-        region: us-east-1
-        namespace: continous-testing
-        dimensions:
-          - name: Team
-            value: SQA
-          - name: my-service
-            value: checkout-svc
-        traces:
-          serviceName: my-service
-          useRequestNames: true
-          annotations:
-            testType: LoadTest
-            tool: Artillery
   target: "https://playwright.dev/"
   phases:
     - arrivalRate: 1
