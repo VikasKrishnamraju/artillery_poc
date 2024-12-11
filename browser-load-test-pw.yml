@@ -6,6 +6,7 @@ config:
         # Set attributes for all resources (metrics and traces):
         resourceAttributes:
           testName: '{{ test_name }}'
+          testerName: 'vikky'
         metrics:
           endpoint: 'http://{{ metrics_url }}:14269/v1/metrics'
         traces:
@@ -18,7 +19,7 @@ config:
   phases:
     - arrivalRate: 1
       duration: 10
-      maxVusers: 1
+      maxVusers: 3
   engines:
     playwright:
       trace: true
