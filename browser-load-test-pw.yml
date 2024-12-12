@@ -23,7 +23,7 @@ config:
       arrivalRate: 1
       maxVusers: 1
       name: constant user
-    - duration: 30
+    - duration: 120
       name: sustain
   engines:
     playwright:
