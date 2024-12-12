@@ -14,23 +14,25 @@ async function checkOutArtilleryCoreConceptsFlow(
     await page.goto('https://artillery.io/');
     const req = await requestPromise;
   });
+  await page.waitForTimeout(5000);
   await test.step('Click On <Docs>', async () => {
     const docs = await page.getByRole('link', { name: 'Docs' });
     await docs.click();
     await page.waitForURL('https://www.artillery.io/docs');
   });
-
+await page.waitForTimeout(5000);
   await test.step('Click On <Review core concepts>', async () => {
     await page
       .getByRole('link', {
         name: 'Review core concepts'
       })
       .click();
-
+await page.waitForTimeout(5000);
     await page.waitForURL(
       'https://www.artillery.io/docs/get-started/core-concepts'
     );
   });
+await page.waitForTimeout(5000);
 }
 
 async function checkOutPlayWrightFlow(
