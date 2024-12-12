@@ -23,6 +23,8 @@ config:
       arrivalRate: 1
       maxVusers: 1
       name: constant user
+    - duration: 30
+      name: sustain
   engines:
     playwright:
       trace: true
