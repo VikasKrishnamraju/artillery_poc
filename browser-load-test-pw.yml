@@ -1,15 +1,6 @@
 config:
   plugins:
     publish-metrics:
-      - type: 'open-telemetry'
-        serviceName: '{{ service_name }}'
-        # Set attributes for all resources (metrics and traces):
-        resourceAttributes:
-          testName: '{{ test_name }}'
-        metrics:
-          endpoint: 'http://{{ metrics_url }}:14269/v1/metrics'
-        traces:
-          endpoint: 'http://{{ metrics_url }}:4318/v1/traces'
       - type: prometheus
         pushgateway: 'http://{{ metrics_url }}:9091'
         tags:
