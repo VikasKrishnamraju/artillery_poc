@@ -14,25 +14,23 @@ async function checkOutArtilleryCoreConceptsFlow(
     await page.goto('https://artillery.io/');
     const req = await requestPromise;
   });
-  await page.waitForTimeout(20000);
+  
   await test.step('Click On <Docs>', async () => {
     const docs = await page.getByRole('link', { name: 'Docs' });
     await docs.click();
     await page.waitForURL('https://www.artillery.io/docs');
   });
-await page.waitForTimeout(20000);
+
   await test.step('Click On <Review core concepts>', async () => {
     await page
       .getByRole('link', {
         name: 'Review core concepts'
       })
       .click();
-await page.waitForTimeout(20000);
     await page.waitForURL(
       'https://www.artillery.io/docs/get-started/core-concepts'
     );
   });
-await page.waitForTimeout(20000);
 }
 
 async function checkOutPlayWrightFlow(
@@ -46,28 +44,33 @@ async function checkOutPlayWrightFlow(
     await page.goto('https://playwright.dev/');
     const req = await requestPromise;
   });
+  await page.waitForTimeout(20000);
+  
   await test.step('Click On <Docs>', async () => {
     const docs = await page.getByRole('link', { name: 'Docs' });
     await docs.click();
     await page.waitForURL('https://playwright.dev/docs/intro');
   });
-
+  await page.waitForTimeout(20000);
+  
   await test.step('Click On <Generating tests>', async () => {
     await page
       .getByRole('link', {
         name: 'Generating tests'
       })
       .click();
-
     await page.waitForURL(
       'https://playwright.dev/docs/codegen-intro'
     );
   });
+  await page.waitForTimeout(20000);
+  
   await test.step('Click On <Setting up CI>', async () => {
-  const docs = await page.getByRole('link', { name: 'Setting up CI' });
-  await docs.click();
-  await page.waitForURL('https://playwright.dev/docs/ci-intro');
+    const docs = await page.getByRole('link', { name: 'Setting up CI' });
+    await docs.click();
+    await page.waitForURL('https://playwright.dev/docs/ci-intro');
   });
+  await page.waitForTimeout(20000);
 }
 
 //
