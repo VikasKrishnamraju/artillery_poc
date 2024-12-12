@@ -19,9 +19,10 @@ config:
           endpoint: 'http://{{ metrics_url }}:4318/v1/traces'
   target: "https://playwright.dev/"
   phases:
-    - arrivalRate: 1
-      duration: 30
-      maxVusers: 3
+    - duration: 1
+      arrivalRate: 1
+      maxVusers: 1
+      name: constant user
   engines:
     playwright:
       trace: true
