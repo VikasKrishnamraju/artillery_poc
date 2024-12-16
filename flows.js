@@ -46,14 +46,14 @@ async function checkOutPlayWrightFlow(
   });
   await page.waitForTimeout(5000);
   
-  await test.step('Click On <Docs>', async () => {
+  await test.step('Click On [Docs]', async () => {
     const docs = await page.getByRole('link', { name: 'Docs' });
     await docs.click();
     await page.waitForURL('https://playwright.dev/docs/intro');
   });
   await page.waitForTimeout(5000);
   
-  await test.step('Click On <Generating tests>', async () => {
+  await test.step('Click On [Generating tests]', async () => {
     await page
       .getByRole('link', {
         name: 'Generating tests'
@@ -65,7 +65,7 @@ async function checkOutPlayWrightFlow(
   });
   await page.waitForTimeout(5000);
   
-  await test.step('Click On <Setting up CI>', async () => {
+  await test.step('Click On [Setting up CI]', async () => {
     const docs = await page.getByRole('link', { name: 'Setting up CI' });
     await docs.click();
     await page.waitForURL('https://playwright.dev/docs/ci-intro');
