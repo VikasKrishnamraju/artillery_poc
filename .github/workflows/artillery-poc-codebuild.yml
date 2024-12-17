@@ -40,7 +40,7 @@ permissions:
 
 jobs:
   artillery:
-    runs-on: codebuild-artillery-performance-12-${{ github.run_id }}-${{ github.run_attempt }}
+    runs-on: codebuild-artillery-performance-13-${{ github.run_id }}-${{ github.run_attempt }}
 
     steps:
       - name: Checkout repository
@@ -58,5 +58,5 @@ jobs:
           # --record --key ${{ secrets.ARTILLERY_RESULTS_KEY }}
           aws s3api create-bucket --bucket artilleryio-results 
           aws s3 cp "${{ inputs.testName }}"_results.json s3://artilleryio-results/"${{ inputs.testName }}"_results.json
-          #artillery report output overall-pw-report-dec-10-1.json
-          #aws s3 cp overall-pw-report-dec-10-1.html s3://artilleryio-test-data-905418472862/overall-pw-report-dec-10-1.html
+          report output "${{ inputs.testName }}"_results.json
+          aws s3 cp "${{ inputs.testName }}"_results.html s3://artilleryio-results/"${{ inputs.testName }}"_results.html
