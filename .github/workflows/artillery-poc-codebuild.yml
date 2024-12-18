@@ -59,4 +59,4 @@ jobs:
           aws s3api create-bucket --bucket artilleryio-results 
           aws s3 cp "${{ inputs.testName }}"_results.json s3://artilleryio-results/"${{ inputs.testName }}"_results.json
           run report "${{ inputs.testName }}"_results.json
-          aws s3 cp "${{ inputs.testName }}"_results.html s3://artilleryio-results/"${{ inputs.testName }}"_results.html
+          aws s3 cp "${{ inputs.testName }}"_results.json.html s3://artilleryio-results/"${{ inputs.testName }}"_results.html
