@@ -17,8 +17,8 @@ config:
   target: "https://playwright.dev/"
   phases:
     - duration: 1
-      arrivalRate: 5
-      maxVusers: 5
+      arrivalRate: 1
+      maxVusers: 1
       name: constant user
   engines:
     playwright:
