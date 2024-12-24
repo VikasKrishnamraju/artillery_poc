@@ -44,14 +44,14 @@ async function checkOutPlayWrightFlow(
     await page.goto('https://playwright.dev/');
     const req = await requestPromise;
   });
-  await page.waitForTimeout(5000);
+  await page.waitForTimeout(180000);
   
   await test.step('Click On [Docs]', async () => {
     const docs = await page.getByRole('link', { name: 'Docs' });
     await docs.click();
     await page.waitForURL('https://playwright.dev/docs/intro');
   });
-  await page.waitForTimeout(5000);
+  await page.waitForTimeout(180000);
   
   await test.step('Click On [Generating tests]', async () => {
     await page
@@ -63,14 +63,14 @@ async function checkOutPlayWrightFlow(
       'https://playwright.dev/docs/codegen-intro'
     );
   });
-  await page.waitForTimeout(5000);
+  await page.waitForTimeout(180000);
   
   await test.step('Click On [Setting up CI]', async () => {
     const docs = await page.getByRole('link', { name: 'Setting up CI' });
     await docs.click();
     await page.waitForURL('https://playwright.dev/docs/ci-intro');
   });
-  await page.waitForTimeout(5000);
+  await page.waitForTimeout(180000);
 }
 
 //
