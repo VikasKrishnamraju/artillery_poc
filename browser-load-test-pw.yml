@@ -22,8 +22,8 @@ config:
       name: constant user
   engines:
     playwright:
-      aggregateByName: {{ aggregate_by_name }}
-      extendedMetrics: {{ extended_metrics }}
+      aggregateByName: '{{ aggregate_by_name }}'
+      extendedMetrics: '{{ extended_metrics }}'
   processor: ./flows.js
 scenarios:
   - name: "playwright_dev_website"
