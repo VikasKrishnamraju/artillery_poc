@@ -22,7 +22,7 @@ config:
       maxVusers: 1
   engines:
     playwright:
-      trace: true
+      extendedMetrics: true
   processor: ./flows.js
 scenarios:
   - name: "check_out_core_concepts_scenario"
