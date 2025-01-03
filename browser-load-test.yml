@@ -21,7 +21,7 @@ config:
       duration: 10
       maxVusers: 1
   engines:
-    playwright:
+    playwright: { aggregateByName: true }
       extendedMetrics: true
   processor: ./flows.js
 scenarios:
