@@ -22,6 +22,7 @@ config:
       name: constant user
   engines:
     playwright:
+      aggregateByName: true
       extendedMetrics: true
   processor: ./flows.js
 scenarios:
