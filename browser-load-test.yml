@@ -22,7 +22,7 @@ config:
       maxVusers: 1
   engines:
     playwright: 
-      aggregateByName: '{{ aggregateByName }}'
+      aggregateByName: '{{ aggregate_by_name }}'
       extendedMetrics: true
   processor: ./flows.js
 scenarios:
