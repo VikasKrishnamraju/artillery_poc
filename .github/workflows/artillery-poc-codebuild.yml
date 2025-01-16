@@ -39,7 +39,7 @@ on:
         required: true
         default: false
       aggregateByName:
-        description: "Aggreggate Metrics by Scenarion Name rather than URL's"
+        description: "Aggreggate Metrics by Scenario Name rather than URL's"
         type: boolean
         required: true
         default: false
