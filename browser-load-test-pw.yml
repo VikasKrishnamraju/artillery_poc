@@ -21,9 +21,7 @@ config:
       maxVusers: 5
       name: constant user
   engines:
-    playwright:
-      aggregateByName: false
-      extendedMetrics: false
+    playwright: {}
   processor: ./flows.js
 scenarios:
   - name: "playwright_dev_website"
