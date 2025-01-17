@@ -22,10 +22,10 @@ config:
       maxVusers: 1
   engines:
     playwright: 
-      aggregateByName: false
+      aggregateByName: true
       extendedMetrics: true
   processor: ./flows.js
 scenarios:
-  - name: "check_out_core_concepts_scenario"
+  - name: "check_out_core_concepts"
     engine: playwright
     flowFunction: "checkOutArtilleryCoreConceptsFlow"
