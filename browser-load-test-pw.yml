@@ -21,7 +21,7 @@ config:
       rampTo: 5
       maxVusers: 5
       name: 'RampUp Phase'
-    - duration: '30m'
+    - duration: '20m'
       arrivalRate: 1
       maxVusers: 5
       name: 'Actual Load for 10 min'
