@@ -16,14 +16,19 @@ config:
           #endpoint: 'http://{{ metrics_url }}:4318/v1/traces'
   target: "https://playwright.dev/"
   phases:
-    - duration: 1
-      arrivalRate: 5
+    - duration: '10s'
+      arrivalRate: 1
+      rampTo: 5
       maxVusers: 5
-      name: constant user
+      name: 'RampUp Phase'
+    - duration: '10m'
+      arrivalRate: 1
+      maxVusers: 5
+      name: 'Actual Load for 10 min'
   engines:
     playwright:
       extendedMetrics: true
-      aggregateByName: '{{ aggregate_by_name }}' 
+      aggregateByName: '{{ aggregate_by_name }}'
   processor: ./flows.js
 scenarios:
   - name: "playwright_dev_website"
