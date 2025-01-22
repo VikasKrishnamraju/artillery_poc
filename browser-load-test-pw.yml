@@ -23,7 +23,7 @@ config:
   engines:
     playwright:
       extendedMetrics: true
-      aggregateByName: {{ aggregate_by_name }}
+      aggregateByName: '{{ aggregate_by_name }}'
   processor: ./flows.js
 scenarios:
   - name: "playwright_dev_website"
