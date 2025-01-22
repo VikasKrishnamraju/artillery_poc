@@ -16,15 +16,10 @@ config:
           #endpoint: 'http://{{ metrics_url }}:4318/v1/traces'
   target: "https://playwright.dev/"
   phases:
-    - duration: '10s'
+    - duration: '1s'
       arrivalRate: 1
-      rampTo: 5
-      maxVusers: 5
-      name: 'RampUp Phase'
-    - duration: '20m'
-      arrivalRate: 1
-      maxVusers: 5
-      name: 'Actual Load for 10 min'
+      maxVusers: 1
+      name: 'One User For Each Fargate Cluster'
   engines:
     playwright:
       extendedMetrics: true
