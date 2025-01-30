@@ -1,0 +1,13 @@
+config:
+  target: "http://doesntmatter"
+  phases:
+    - duration: '1s'
+      arrivalRate: 1
+      maxVusers: 1
+      name: "Phase 1"
+  processor: "./flows.js"
+
+scenarios:
+  - beforeScenario: getUser
+    flow:
+      - log: "Username: {{ username }} | Password: {{ password }}"
