@@ -3,7 +3,7 @@
 // playwright codegen
 // https://playwright.dev/docs/codegen
 //
-const { Redis } = require('redis');
+const { Redis } = require('@upstash/redis');
 
 const redis = new Redis({
     url: process.env.UPSTASH_REDIS_URL,
