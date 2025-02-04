@@ -9,6 +9,11 @@ const client = await createClient({ url: process.env.REDIS_URL })
     .on('error', err => console.log('Redis Client Error', err))
     .connect();
 
+await client.set('User', 'Artillery User');
+const value = await client.get('User');
+console.log(`User Is: ${value}`);
+await client.disconnect();
+
 /*const redis = new Redis({
     url: process.env.REDIS_URL,
     //token: process.env.UPSTASH_REDIS_TOKEN
