@@ -5,12 +5,9 @@
 //
 import { createClient } from 'redis';
 
-const client = await createClient({
-    url: process.env.REDIS_URL,
-    //token: process.env.UPSTASH_REDIS_TOKEN
-});
-  .on('error', err => console.log('Redis Client Error', err))
-  .connect();
+const client = await createClient({ url: process.env.REDIS_URL })
+    .on('error', err => console.log('Redis Client Error', err))
+    .connect();
 
 /*const redis = new Redis({
     url: process.env.REDIS_URL,
