@@ -3,12 +3,14 @@
 // playwright codegen
 // https://playwright.dev/docs/codegen
 //
-const redis = require('redis');
-const client = redis.createClient(6379, process.env.REDIS_URL);
+import { createClient } from 'redis';
 
-client.on('connect', function() {
-  console.log('Connected!');
+const client = await createClient({
+    url: process.env.REDIS_URL,
+    //token: process.env.UPSTASH_REDIS_TOKEN
 });
+  .on('error', err => console.log('Redis Client Error', err))
+  .connect();
 
 /*const redis = new Redis({
     url: process.env.REDIS_URL,
