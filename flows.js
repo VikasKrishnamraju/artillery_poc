@@ -3,12 +3,17 @@
 // playwright codegen
 // https://playwright.dev/docs/codegen
 //
-const { Redis } = require('@upstash/redis');
+const redis = require('redis');
+const client = redis.createClient(6379, process.env.REDIS_URL);
 
-const redis = new Redis({
-    url: process.env.UPSTASH_REDIS_URL,
-    //token: process.env.UPSTASH_REDIS_TOKEN
+client.on('connect', function() {
+  console.log('Connected!');
 });
+
+/*const redis = new Redis({
+    url: process.env.REDIS_URL,
+    //token: process.env.UPSTASH_REDIS_TOKEN
+});*/
 
 async function getUser(context, events) {
     const initialTime = Date.now();
