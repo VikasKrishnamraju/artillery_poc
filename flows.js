@@ -13,8 +13,8 @@ const redis = new Redis({
 /*async function createUser() {
   await redis.set("foo", "bar");
   let x = await redis.get("foo");
-  console.log(x);*/
-}
+  console.log(x);
+}*/
 
 async function getUser(context, events) {
     //createUser();
