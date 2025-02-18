@@ -12,7 +12,7 @@ console.log(x);
 
 async function getUser(context, events) {
     const initialTime = Date.now();
-    const res = await redis.lpop('users', 1);
+    const res = await client.lpop('users', 1);
 
     if (res.length === 0) {
         console.error('No users found in Redis');
