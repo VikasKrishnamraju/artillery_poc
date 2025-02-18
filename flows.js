@@ -7,7 +7,7 @@ const Redis = require("ioredis");
 
 const redis = new Redis({
   port: Number(process.env.redisPort || 6379),
-  host: process.env.redisEndpoint
+  host: process.env.redisEndpoint,
 });
 await client.set("foo", "bar");
 let x = await client.get("foo");
