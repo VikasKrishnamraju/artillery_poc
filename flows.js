@@ -11,13 +11,13 @@ const redis = new Redis({
 });
 
 async function createUser() {
-  redis.set("foo", "bar");
+  await redis.set("foo", "bar");
   let x = await redis.get("foo");
   console.log(x);
 }
 
 async function getUser(context, events) {
-    await createUser();
+    //createUser();
     const initialTime = Date.now();
     const res = await redis.lpop('users', 1);
 
