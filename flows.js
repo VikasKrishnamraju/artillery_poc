@@ -9,11 +9,15 @@ const redis = new Redis({
   port: Number(process.env.redisPort || 6379),
   host: process.env.redisEndpoint,
 });
-await client.set("foo", "bar");
-let x = await client.get("foo");
-console.log(x);
+
+async function createUser() {
+  redis.set("foo", "bar");
+  let x = await redis.get("foo");
+  console.log(x);
+}
 
 async function getUser(context, events) {
+    await createUser();
     const initialTime = Date.now();
     const res = await redis.lpop('users', 1);
 
