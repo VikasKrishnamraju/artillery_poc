@@ -5,7 +5,10 @@
 //
 const Redis = require("ioredis");
 
-let client = new Redis("rediss://"+process.env.REDIS_URL);
+const redis = new Redis({
+  port: Number(process.env.redisPort || 6379),
+  host: process.env.redisEndpoint
+});
 await client.set("foo", "bar");
 let x = await client.get("foo");
 console.log(x);
