@@ -3,12 +3,12 @@
 // playwright codegen
 // https://playwright.dev/docs/codegen
 //
-const { Redis } = require('redis');
+const Redis = require("ioredis");
 
-const redis = new Redis({
-    url: process.env.REDIS_URL,
-    //token: process.env.UPSTASH_REDIS_TOKEN
-});
+let client = new Redis("rediss://"{process.env.REDIS_URL});
+await client.set("foo", "bar");
+let x = await client.get("foo");
+console.log(x);
 
 async function getUser(context, events) {
     const initialTime = Date.now();
