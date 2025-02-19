@@ -62,7 +62,6 @@ jobs:
             npm install redis
             npm install @ngneat/falso
             npm install dotenv
-            less /etc/redis/redis.conf
           
       - name: Set HostName .env, Seed Data Into Redis Server
         run: |
@@ -84,4 +83,3 @@ jobs:
           aws s3 cp "${{ inputs.testName }}"-results.json s3://artilleryio-results/"${{ inputs.testName }}"-results.json
           run report "${{ inputs.testName }}"-results.json
           aws s3 cp "${{ inputs.testName }}"-results.json.html s3://artilleryio-results/"${{ inputs.testName }}"-results.html
-          aws s3 cp /etc/redis/redis.conf s3://artilleryio-results/redis.conf
