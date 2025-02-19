@@ -58,8 +58,10 @@ jobs:
           
       - name: Get HostName and Redis Version
         run: |
-          hostname -i
+          export HOSTNAME=$(hostname -i)
           redis-cli -v
+          sed -i 's/redisEndpoint=/redisEndpoint=${HOSTNAME}/g' .env
+          less .env
 
       - name: Run Fargate Test
         timeout-minutes: 60 # best practice: adding timeout in case something goes wrong with the test, so that GitHub Action won’t run for the default 6h
