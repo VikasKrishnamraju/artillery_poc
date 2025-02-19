@@ -84,5 +84,4 @@ jobs:
           aws s3 cp "${{ inputs.testName }}"-results.json s3://artilleryio-results/"${{ inputs.testName }}"-results.json
           run report "${{ inputs.testName }}"-results.json
           aws s3 cp "${{ inputs.testName }}"-results.json.html s3://artilleryio-results/"${{ inputs.testName }}"-results.html
-          less /var/log/redis/*.log
           aws s3 cp /etc/redis/redis.conf s3://artilleryio-results/redis.conf
