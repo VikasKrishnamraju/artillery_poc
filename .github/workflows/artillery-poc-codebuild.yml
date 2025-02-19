@@ -60,6 +60,7 @@ jobs:
         run: |
           redis-cli -v
           export HOSTNAME=$(hostname -i)
+          echo ${HOSTNAME}
           sed -i 's/redisEndpoint=/redisEndpoint="${HOSTNAME}"/g' .env
           less .env
 
