@@ -34,8 +34,6 @@ async function storeUsersInRedis(users) {
 
 // Main function to seed users
 async function seedUsers() {
-  console.log(process.env.redisEndpoint);
-  console.log(process.env.redisPort);
   for (let i = 0; i < USERS_COUNT; i += BATCH_SIZE) {
     // Generate users
     const users = Array.from({ length: BATCH_SIZE }, generateUser);
