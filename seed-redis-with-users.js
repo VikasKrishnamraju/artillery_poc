@@ -11,7 +11,6 @@ const BATCH_SIZE = 5;
 const redis = new Redis({
   port: Number(process.env.redisPort || 6379),
   host: process.env.redisEndpoint,
-  connectTimeout: 10000,
 });
 
 // Generate a random username and password
