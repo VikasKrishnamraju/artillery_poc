@@ -46,16 +46,7 @@ permissions:
 jobs:
   artillery:
     runs-on: codebuild-artillery-performance-38-${{ github.run_id }}-${{ github.run_attempt }}
-    
-    container: node:20-bookworm-slim
-    # Service containers to run with `container-job`
-    services:
-      redis:
-        # Docker Hub image
-        image: public.ecr.aws/docker/library/redis:latest
-        ports:
-          - 6379:6379
-          
+        
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -65,8 +56,8 @@ jobs:
           # Otherwise, uses the default branch.
           ref: '${{ inputs.branch }}'
           
-      - name: Push Data To Redis
-        run: node client.js
+      - name: Get HostName
+        run: hostname -i
 
       - name: Run Fargate Test
         timeout-minutes: 60 # best practice: adding timeout in case something goes wrong with the test, so that GitHub Action won’t run for the default 6h
