@@ -58,8 +58,8 @@ jobs:
           
       - name: Get HostName and Redis Version
         run: |
-          export HOSTNAME=$(hostname -i)
           redis-cli -v
+          export HOSTNAME=$(hostname -i)
           sed -i 's/redisEndpoint=/redisEndpoint=${HOSTNAME}/g' .env
           less .env
 
