@@ -45,7 +45,7 @@ permissions:
 
 jobs:
   artillery:
-    runs-on: codebuild-artillery-performance-37-${{ github.run_id }}-${{ github.run_attempt }}
+    runs-on: codebuild-artillery-performance-38-${{ github.run_id }}-${{ github.run_attempt }}
     services:
       redis:
         image: public.ecr.aws/docker/library/redis:latest
