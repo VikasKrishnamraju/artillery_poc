@@ -56,7 +56,7 @@ jobs:
           # Otherwise, uses the default branch.
           ref: '${{ inputs.branch }}'
           
-      - name: Install Redis Dependencies
+      - name: Install User Seed Script Dependencies
         run: |
             npm install ioredis
             npm install redis
