@@ -59,7 +59,6 @@ jobs:
       - name: Get HostName and Redis Version
         run: |
           hostname -i
-          redis-server -v
           redis-cli -v
 
       - name: Run Fargate Test
