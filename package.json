@@ -1,14 +1,16 @@
 {
-  "name": "playwright_artillery",
+  "name": "using-data-from-redis",
   "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {},
-  "keywords": [],
+  "description": "",
+  "main": "flow.js",
   "author": "",
   "license": "ISC",
-  "description": "",
-  "devDependencies": {
+  "dependencies": {
     "redis": "4.7.0",
     "ioredis": "5.0.6"
+  },
+  "devDependencies": {
+    "@ngneat/falso": "^7.2.0",
+    "dotenv": "^16.4.5"
   }
 }
