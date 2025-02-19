@@ -8,7 +8,6 @@ const Redis = require("ioredis");
 const redis = new Redis({
   port: Number(process.env.redisPort || 6379),
   host: process.env.redisEndpoint,
-  connectTimeout: 10000,
 });
 
 /*async function createUser() {
