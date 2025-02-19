@@ -56,14 +56,14 @@ jobs:
           # Otherwise, uses the default branch.
           ref: '${{ inputs.branch }}'
           
-      - name: Install User Seed Script Dependencies
+      - name: Install Script Dependencies - User Seed 
         run: |
             npm install ioredis
             npm install redis
             npm install @ngneat/falso
             npm install dotenv
           
-      - name: Get HostName and Redis Version
+      - name: Set HostName .env, Seed Data Into Redis Server
         run: |
           export HOSTNAME=$(hostname -i)
           echo $HOSTNAME
