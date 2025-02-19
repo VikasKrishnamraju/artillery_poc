@@ -70,7 +70,7 @@ jobs:
           sed -i 's/redisEndpoint=/redisEndpoint='"${HOSTNAME}"'/g' .env
           less .env
           CONFIG SET protected-mode no
-          redis-server --daemonize yes
+          redis-server --daemonize yes --protected-mode no
           redis-cli ping
           node seed-redis-with-users.js
 
