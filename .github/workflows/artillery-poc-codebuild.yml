@@ -69,7 +69,7 @@ jobs:
           echo $HOSTNAME
           sed -i 's/redisEndpoint=/redisEndpoint='"${HOSTNAME}"'/g' .env
           less .env
-          sed -i '/^bind/s/bind.*/bind 127.0.0.1/' /etc/redis/redis.conf
+          sed -i '/^bind/s/bind.*/# bind 127.0.0.1 -::1/' /etc/redis/redis.conf
           redis-server --daemonize yes --protected-mode no
           redis-cli ping
           node seed-redis-with-users.js
@@ -84,4 +84,5 @@ jobs:
           aws s3 cp "${{ inputs.testName }}"-results.json s3://artilleryio-results/"${{ inputs.testName }}"-results.json
           run report "${{ inputs.testName }}"-results.json
           aws s3 cp "${{ inputs.testName }}"-results.json.html s3://artilleryio-results/"${{ inputs.testName }}"-results.html
+          less /var/log/redis/*.log
           aws s3 cp /etc/redis/redis.conf s3://artilleryio-results/redis.conf
