@@ -46,8 +46,10 @@ permissions:
 jobs:
   artillery:
     runs-on: codebuild-artillery-performance-38-${{ github.run_id }}-${{ github.run_attempt }}
+
     services:
       redis:
+        # Docker Hub image
         image: public.ecr.aws/docker/library/redis:latest
         ports:
           - 6379:6379
@@ -60,6 +62,9 @@ jobs:
           # triggered a workflow, this defaults to the reference or SHA for that event.
           # Otherwise, uses the default branch.
           ref: '${{ inputs.branch }}'
+          
+      - name: Install dependencies
+        run: npm ci
 
       - name: Run Fargate Test
         timeout-minutes: 60 # best practice: adding timeout in case something goes wrong with the test, so that GitHub Action won’t run for the default 6h
