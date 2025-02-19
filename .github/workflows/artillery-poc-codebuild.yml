@@ -69,6 +69,7 @@ jobs:
           echo $HOSTNAME
           sed -i 's/redisEndpoint=/redisEndpoint='"${HOSTNAME}"'/g' .env
           less .env
+          sed -i '/^bind/s/bind.*/#bind 127.0.0.1 -::1/' /etc/redis/redis.conf
           redis-server --daemonize yes --protected-mode no
           redis-cli ping
           node seed-redis-with-users.js
