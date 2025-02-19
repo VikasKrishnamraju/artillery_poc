@@ -56,6 +56,13 @@ jobs:
           # Otherwise, uses the default branch.
           ref: '${{ inputs.branch }}'
           
+      - name: Install Redis Dependencies
+        run: |
+            npm install ioredis
+            npm install redis
+            npm install @ngneat/falso
+            npm install dotenv
+          
       - name: Get HostName and Redis Version
         run: |
           export HOSTNAME=$(hostname -i)
