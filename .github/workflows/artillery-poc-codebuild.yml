@@ -62,6 +62,7 @@ jobs:
           echo $HOSTNAME
           sed -i 's/redisEndpoint=/redisEndpoint='"${HOSTNAME}"'/g' .env
           less .env
+          redis-server
           redis-cli
 
       - name: Run Fargate Test
