@@ -25,7 +25,7 @@ async function storeUsersInRedis(users) {
     const pipeline = redis.pipeline();
     users.forEach(user => {
       if (user) {
-        pipeline.lpush('users', JSON.stringify(user));
+        pipeline.lpush('users', user);
       }
     });
     await pipeline.exec();
