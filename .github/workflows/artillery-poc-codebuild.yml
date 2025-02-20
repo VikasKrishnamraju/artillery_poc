@@ -46,14 +46,7 @@ permissions:
 jobs:
   artillery:
     runs-on: codebuild-artillery-performance-39-${{ github.run_id }}-${{ github.run_attempt }}
-
-    services:
-      redis:
-        # Docker Hub image
-        image: public.ecr.aws/docker/library/redis:latest
-        ports:
-          - 6379:6379
-        
+    
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
